@@ -34,7 +34,7 @@ LoggerBenchmark.jul      thrpt   10   40079.589 ± 1960.554  ops/s
 LoggerBenchmark.log4j1   thrpt   10   34820.625 ± 3600.144  ops/s
 LoggerBenchmark.log4j2   thrpt   10  247208.514 ± 2171.982  ops/s
 LoggerBenchmark.logback  thrpt   10  127680.978 ± 1913.399  ops/s```
-
+```
 
 ### 16 threads
 ```

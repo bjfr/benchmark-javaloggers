@@ -13,7 +13,7 @@ Here are the results from the tests run on my machine
 
 ```
 MacBook Pro (Retina, 15-inch, Late 2013)
-Processor: 2 GHz Intel Core i7, 4 cores
+Processor: Intel(R) Core(TM) i7-4750HQ CPU @ 2.00GHz, 4 cores
 Memory: 8 GB 1600 MHz DDR3
 SSD Speed: 640 MB/s
 ```

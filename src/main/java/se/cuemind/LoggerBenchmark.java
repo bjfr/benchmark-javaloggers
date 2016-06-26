@@ -51,7 +51,7 @@ import org.slf4j.LoggerFactory;
 
 @State(Scope.Benchmark)
 @Threads(1)
-@Fork(value=1)
+@Fork(value=1, jvmArgsAppend="-Djava.util.logging.config.file=src/main/resources/jul.properties")
 @Warmup(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
 @Measurement(iterations = 10, time = 1, timeUnit = TimeUnit.SECONDS)
 public class LoggerBenchmark {
@@ -59,14 +59,16 @@ public class LoggerBenchmark {
   org.apache.logging.log4j.Logger log4j2;
   org.apache.log4j.Logger log4j1;
   org.slf4j.Logger logback;
+  java.util.logging.Logger jul;
 
   private AtomicInteger counter;
   
   @Setup(Trial)
   public void setUp() {
-    log4j2 = LogManager.getLogger("se.cuemind.logbenchmark");
-    log4j1 = org.apache.log4j.Logger.getLogger("se.cuemind.logbenchmark");
-    logback = LoggerFactory.getLogger("se.cuemind.logbenchmark");
+    log4j2 = LogManager.getLogger("sync");
+    log4j1 = org.apache.log4j.Logger.getLogger("sync");
+    logback = LoggerFactory.getLogger("sync");
+    jul =  java.util.logging.Logger.getLogger("sync");;
     counter = new AtomicInteger();
   }
 
@@ -90,6 +92,12 @@ public class LoggerBenchmark {
   @Benchmark()
   public void logback(Blackhole bh) {
     logback.debug("This is log message " + counter.get());
+    counter.incrementAndGet();
+  }
+
+  @Benchmark()
+  public void jul(Blackhole bh) {
+    jul.finer("This is log message " + counter.get());
     counter.incrementAndGet();
   }
 }

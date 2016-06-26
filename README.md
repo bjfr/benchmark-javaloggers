@@ -1,7 +1,7 @@
 Microbenchmark - Logging frameworks
 -----------------------------------
 
-This is a microbenchmark built using the JMH microbenchmark toool (http://tutorials.jenkov.com/java-performance/jmh.html)
+This is a microbenchmark built using the JMH microbenchmark toool (http://tutorials.jenkov.com/java-performance/jmh.html).
 The tested frameworks are:
 
  * Log4j1 - https://logging.apache.org/log4j/1.2/

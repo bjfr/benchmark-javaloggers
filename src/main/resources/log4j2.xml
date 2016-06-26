@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" strict="true" name="XMLConfig">
+
+  <Properties>
+    <Property name="filename">target/testdata/log4j2.log</Property>
+  </Properties>
+
+  <Appenders>
+    <Appender type="File" name="file" fileName="${filename}">
+      <Layout type="PatternLayout">
+        <Pattern>%date %-5level [%thread] %logger - %msg%n%throwable
+        </Pattern>
+      </Layout>
+    </Appender>
+  </Appenders>
+
+  <Loggers>
+    <Root>
+      <AppenderRef ref="file" />
+    </Root>
+  </Loggers>
+
+</Configuration>
